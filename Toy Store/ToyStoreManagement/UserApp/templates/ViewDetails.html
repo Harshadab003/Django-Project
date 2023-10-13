@@ -1,0 +1,30 @@
+{%extends "Homepage.html"%}
+{%block content%}
+<center>
+<h1>View Details</h1>
+<form method="post" action="/AddToCart">
+    {%csrf_token%}
+<table class="table">
+    <tr><td>Toy Id</td><td>{{toy.id}}
+        <input type="hidden" name="tid" value="{{toy.id}}"/>
+    </td></tr>
+    <tr><td>Toy Name</td><td>{{toy.toy_name}}</td></tr>
+    <tr><td>Toy Price</td><td>{{toy.price}}</td></tr>
+    <tr><td>Toy Description</td><td>{{toy.description}}</td></tr>
+    <tr><td>Category</td><td>{{toy.cat_fk}}</td></tr>
+    <tr><td>Image</td><td><img src="{{toy.image.url}}" style="height: 200px;width: 200px;"></td></tr>
+    <tr><td>Select Quantity</td>
+        <td><select name="qty" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select></td></tr>
+    <tr><td><button type="submit" class="button btn-success">Add To Cart</button></td>
+    <td></td></tr>
+            
+</table>
+</form>
+</center>
+{%endblock%}
